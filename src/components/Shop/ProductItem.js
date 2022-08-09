@@ -1,5 +1,5 @@
 import { cartActions } from "../../store/cart-slice";
-import { postActions } from "../../store/post-slice";
+// import { postActions } from "../../store/post-slice";
 import { useDispatch } from "react-redux";
 import Card from "../UI/Card";
 import classes from "./ProductItem.module.css";
@@ -10,9 +10,14 @@ const ProductItem = (props) => {
   const dispatch = useDispatch();
 
   const addItemToCartHandler = async () => {
+    // and then send Http request
+    // fetch('firebase-url', { method: 'POST', body: JSON.stringify(newCart) })
+
     dispatch(cartActions.addItemToCart({ id, title, price }));
+
+    /*
     dispatch(postActions.setIsSubmitting(true));
-    fetch("https://react-http-92e78-default-rtdb.firebaseio.com/cart.json", {
+    fetch("https://react-http-92e78-default-rtdb.firebaseio.com/cart.json", { 
       method: "POST",
       body: JSON.stringify({ id, title, price, description }),
       headers: {
@@ -20,7 +25,7 @@ const ProductItem = (props) => {
       },
     });
     dispatch(postActions.setIsSubmitting(false));
-    dispatch(postActions.setIsSubmitted(true));
+    dispatch(postActions.setIsSubmitted(true)); */
   };
 
   return (
